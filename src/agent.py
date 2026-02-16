@@ -1,3 +1,15 @@
+"""
+agent.py — Agentic RAG: Planlama + Araştırma + Cevaplama
+=========================================================
+Sistemin beyni: soruyu analiz eder, doğru kanunu seçer,
+ilgili maddeleri bulur ve kaynaklı cevap üretir.
+
+OpenAI Function Calling (tool_use) kullanarak hangi kanunun
+aranacağına LLM'in kendisi karar verir — bu yaklaşıma
+"Agentic RAG" denir.
+
+"""
+
 from openai import OpenAI
 import json
 import mlflow

@@ -1,6 +1,10 @@
-# Streamlit Frontend - Cloud Run Backend ile İletişim
-# Bu dosya, kullanıcı arayüzünü sağlar ve soruları Cloud Run'daki
-# FastAPI backend'e HTTP ile gönderir.
+"""
+app.py — Streamlit Frontend (Kullanıcı Arayüzü)
+=================================================
+Sohbet tabanlı hukuki asistan arayüzü.
+Soruları Cloud Run'daki FastAPI backend'e HTTP ile gönderir.
+
+"""
 
 import streamlit as st
 import requests

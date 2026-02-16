@@ -1,3 +1,12 @@
+"""
+evaluation.py — RAG Değerlendirme (RAGAS + MLflow)
+===================================================
+Sistem performansını ölçer: Faithfulness, Answer Relevancy,
+Answer Correctness metrikleri RAGAS ile hesaplanır,
+sonuçlar MLflow'a loglanır.
+
+"""
+
 import pandas as pd
 import mlflow
 from ragas import evaluate

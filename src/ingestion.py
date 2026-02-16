@@ -1,3 +1,11 @@
+"""
+ingestion.py — Veri Yükleme Pipeline'ı (ETL)
+=============================================
+PDF → Metin Çıkarma → Parçalama (Chunking) → ChromaDB'ye Kayıt.
+Hukuki metinlere özel ayırıcılar (Madde, Kısım, Bölüm) kullanır.
+
+"""
+
 import os
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pypdf import PdfReader

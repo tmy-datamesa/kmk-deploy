@@ -1,6 +1,15 @@
-# FastAPI Backend API
-# Bu dosya, RAG ajanını bir REST API servisi olarak sunar.
-# Cloud Run üzerinde çalıştırılmak üzere tasarlanmıştır.
+"""
+app_api.py — FastAPI Backend (REST API)
+=======================================
+RAG ajanını HTTP servisi olarak sunar.
+Google Cloud Run üzerinde çalışır.
+
+Endpoints:
+  POST /ask    → Soru-Cevap
+  GET  /health → Kontrol
+  GET  /docs   → Swagger UI (Otomatik)
+
+"""
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware

@@ -1,3 +1,10 @@
+"""
+utils.py — Yardımcı Fonksiyonlar
+=================================
+ChromaDB bağlantısı ve embedding fonksiyonu kurulumu.
+Tüm modüller bu dosyadaki fonksiyonları kullanır.
+"""
+
 import os
 import chromadb
 from chromadb.utils import embedding_functions
