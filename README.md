@@ -54,7 +54,7 @@ Sistem, **Retrieval-Augmented Generation (RAG)** tekniğini ve **Agentic (Ajan) 
 | **Docker** | Konteynerizasyon — Uygulamayı paketler ve taşınabilir hale getirir |
 | **Google Cloud Build** | CI/CD — Docker image'ını bulutta oluşturur |
 | **Google Cloud Run** | Sunucusuz (Serverless) hosting — Backend API'yi çalıştırır |
-| **Google Container Registry** | Docker image deposu — Image'ları saklar |
+| **Google Artifact Registry** | Docker image deposu — Image'ları saklar ve versiyonlar |
 
 ### 📊 MLOps (Deney Takibi)
 | Teknoloji | Ne İçin Kullanıldı? |
