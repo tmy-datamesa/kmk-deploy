@@ -42,6 +42,17 @@ ENV/
 # ChromaDB
 chroma_db/
 chroma_data/
+data/chroma_db/
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Evaluation Artifacts
+evaluation_results.csv
+
+# Streamlit Secrets (gerçek)
+.streamlit/secrets.toml
 
 # OS
 .DS_Store

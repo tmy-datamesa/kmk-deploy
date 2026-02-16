@@ -1,15 +1,17 @@
+"""
+config.py — Merkezi Konfigürasyon
+==================================
+Projenin tüm ayarlarını tek bir merkezde toplar.
+Model adları, veritabanı bağlantıları, RAG parametreleri burada tanımlanır.
+
+https://github.com/tmy-datamesa/kmk-deploy
+"""
+
 import os
 from dotenv import load_dotenv
 
 # .env dosyasını yükle (API anahtarları için)
 load_dotenv()
-
-"""
-KONFİGÜRASYON
------------------------
-Bu dosya projenin tüm ayarlarını tek bir merkezde toplar.
-Mümkün olduğunca sabit değerleri (hardcoded strings) burada tutmaya çalışın.
-"""
 
 # ==============================================================================
 # 1. API VE İSTEMCİ AYARLARI

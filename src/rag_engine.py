@@ -1,3 +1,11 @@
+"""
+rag_engine.py — Vektör Arama Motoru (Retriever)
+================================================
+ChromaDB koleksiyonlarında semantik benzerlik araması yapar.
+Her kanun için ayrı bir LegalRAGTool nesnesi oluşturulur.
+
+"""
+
 from src import config, utils
 
 class LegalRAGTool:

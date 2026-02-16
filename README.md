@@ -2,8 +2,8 @@
 
 **Komşuluk & Apartman Hukuku Yapay Zeka Asistanı**
 
-> 🔗 Canlı Uygulama: [https://kmk-deploy-csnu3xbifrnaixgypfsa93.streamlit.app](https://kmk-deploy-csnu3xbifrnaixgypfsa93.streamlit.app)
-> 🔗 Backend API: [https://legal-rag-api-232706383774.europe-west1.run.app/docs](https://legal-rag-api-232706383774.europe-west1.run.app/docs)
+> 🔗 Canlı Uygulama: [Streamlit Cloud](https://kmk-deploy-csnu3xbifrnaixgypfsa93.streamlit.app)
+> 🔗 Backend API: [Cloud Run — Swagger UI](https://legal-rag-api-232706383774.europe-west1.run.app/docs)
 
 ---
 
@@ -287,10 +287,12 @@ docker build -t legal-rag-api .
 docker run -p 8080:8080 --env-file .env legal-rag-api
 ```
 
-### Google Cloud'a Deploy
+### Google Cloud'a Deploy (Artifact Registry)
 ```bash
-gcloud builds submit --tag gcr.io/PROJECT-ID/legal-rag-api
-gcloud run deploy legal-rag-api --image gcr.io/PROJECT-ID/legal-rag-api --platform managed --region europe-west1
+gcloud builds submit --tag europe-west1-docker.pkg.dev/PROJECT-ID/legal-rag-repo/legal-rag-api
+gcloud run deploy legal-rag-api \
+  --image europe-west1-docker.pkg.dev/PROJECT-ID/legal-rag-repo/legal-rag-api \
+  --platform managed --region europe-west1
 ```
 
 ---
