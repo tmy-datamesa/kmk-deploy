@@ -1,0 +1,163 @@
+[
+    {
+        "question": "Çatı akıyor, tamir masrafına zemin kattaki dükkan katılmak zorunda mı?",
+        "ground_truth_answer": "Evet, katılmak zorundadır. Kanuna göre çatılar 'ortak yer' sayılır. Kat malikleri, anagayrimenkulün bütün ortak yerlerinin bakım, koruma ve onarım giderlerine kendi arsa payları oranında katılmakla yükümlüdür. Zemin katta oturmaları veya çatıdan doğrudan faydalanmamaları bu yükümlülüğü ortadan kaldırmaz.",
+        "ground_truth_context": [
+            "KMK Madde 4 (c): Çatılar, bacalar, genel dam terasları ortak yerlerden sayılır.",
+            "KMK Madde 20: Kat maliklerinden her biri aralarında başka türlü anlaşma olmadıkça; anagayrimenkulün bütün ortak yerlerinin bakım, koruma, güçlendirme ve onarım giderleri ile yönetici aylığı gibi diğer giderlere ve ortak tesislerin işletme giderlerine ve giderler için toplanacak avansa kendi arsa payı oranında katılmakla yükümlüdür."
+        ]
+    },
+    {
+        "question": "Apartman yönetim planını değiştirmek için kaç kişinin oyu gerekir?",
+        "ground_truth_answer": "Yönetim planının değiştirilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu şarttır.",
+        "ground_truth_context": [
+            "KMK Madde 28: Yönetim planının değiştirilmesi için bütün kat maliklerinin beşte dördünün oyu şarttır. Kat maliklerinin 33 üncü maddeye göre mahkemeye başvurma hakları saklıdır."
+        ]
+    },
+    {
+        "question": "Kat malikleri toplantısı ne zaman yapılır?",
+        "ground_truth_answer": "Yönetim planında bir zaman gösterilmemişse, her takvim yılının ilk ayı içinde toplanır. Toplu yapılarda ise en geç iki yılda bir defadan az olmamak üzere ikinci takvim yılının ilk ayı içinde toplanır.",
+        "ground_truth_context": [
+            "KMK Madde 29: Kat malikleri kurulu, yılda bir defadan az olmamak üzere yönetim planında gösterilen zamanlarda, eğer böyle bir zaman gösterilmemişse, her takvim yılının ilk ayı içinde toplanır."
+        ]
+    },
+    {
+        "question": "Komşum evini randevu evi veya kumarhane olarak kullanıyor, ne yapabiliriz?",
+        "ground_truth_answer": "Bir kat maliki dairesini randevu evi veya kumarhane olarak kullanarak ahlak ve adaba aykırı harekette bulunursa, diğer kat malikleri o dairenin mülkiyetinin kendilerine devredilmesini hakimden isteyebilirler (Çekilmezlik hali).",
+        "ground_truth_context": [
+            "KMK Madde 25 (c): Kendi bağımsız bölümünü randevu evi veya kumarhane veya benzeri yer olarak kullanmak suretiyle ahlak ve adaba aykırı harekette bulunması çekilmezlik hali sayılır ve mülkiyetin devri istenebilir."
+        ]
+    },
+    {
+        "question": "Kiracıyım, kirayı en geç ne zaman ödemem gerekir?",
+        "ground_truth_answer": "Aksine bir sözleşme veya yerel âdet yoksa, kira bedelini her ayın sonunda ve en geç kira süresinin bitiminde ödemekle yükümlüsünüz.",
+        "ground_truth_context": [
+            "TBK Madde 314: Kiracı, aksine sözleşme ve yerel âdet yoksa, kira bedelini ve gerekiyorsa yan giderleri, her ayın sonunda ve en geç kira süresinin bitiminde ödemekle yükümlüdür."
+        ]
+    },
+    {
+        "question": "Evde sonradan bir ayıp (kusur) çıkarsa kiracı olarak haklarım nelerdir?",
+        "ground_truth_answer": "Kiraya verenden ayıbın giderilmesini isteyebilir, kira bedelinden indirim talep edebilir veya zararının giderilmesini isteyebilirsiniz. Önemli bir ayıp durumunda sözleşmeyi feshetme hakkınız da saklıdır.",
+        "ground_truth_context": [
+            "TBK Madde 305: Kiralanan sonradan ayıplı hale gelirse kiracı, kiraya verenden ayıpların giderilmesini veya kira bedelinden ayıpla orantılı bir indirim yapılmasını ya da zararının giderilmesini isteyebilir."
+        ]
+    },
+    {
+        "question": "Kiracı komşulara saygısızlık yaparsa ev sahibi ne yapabilir?",
+        "ground_truth_answer": "Konut ve çatılı işyeri kiralarında, kiracı komşulara saygı gösterme borcuna aykırı davranırsa, ev sahibi en az otuz gün süre vererek yazılı bir ihtarda bulunur. Aykırılık giderilmezse sözleşmeyi feshedebilir.",
+        "ground_truth_context": [
+            "TBK Madde 316: Kiracı, kiralananı özenle kullanmak ve taşınmazda oturan kişiler ile komşulara gerekli saygıyı göstermekle yükümlüdür. Aykırılık durumunda konut ve çatılı işyerinde en az 30 gün süre verilir."
+        ]
+    },
+    {
+        "question": "Apartman asansörünün bakımını ne sıklıkla yaptırmalıyız?",
+        "ground_truth_answer": "Asansörün bakımı, asansör monte eden veya onun yetkili servisi tarafından periyodik olarak ayda en az bir defa yapılmalıdır.",
+        "ground_truth_context": [
+            "Asansör İşletme ve Bakım Yönetmeliği Madde 8: Bakım, asansörün güvenli ve sürekli çalışmasını sağlamaya yönelik ayda en az bir defa yapılan periyodik işlemdir."
+        ]
+    },
+    {
+        "question": "Asansör denetiminde kırmızı etiket aldı, kullanmaya devam edebilir miyiz?",
+        "ground_truth_answer": "Hayır. Kırmızı renkli bilgi etiketi iliştirilen (güvensiz) asansöre, kusurlu veya kusursuz hale getirilinceye kadar bakım hizmeti sunulamaz ve kullanılması güvenli değildir. 120 gün içinde düzeltilmezse hizmet dışı bırakılır.",
+        "ground_truth_context": [
+            "Asansör Yönetmeliği Madde 10 (11): Kırmızı renkli bilgi etiketi iliştirilen asansörün takibi, ilgili idare tarafından yapılır ve güvenli hale getirilene kadar kullanımına izin verilmez."
+        ]
+    },
+    {
+        "question": "Asansörde biri mahsur kalırsa kurtarma eğitimini kim verir?",
+        "ground_truth_answer": "Asansör monte eden veya onun yetkili servisi, bina sorumlusunun belirleyeceği sayıda kişiye yılda en az bir defa kurtarma eğitimi verir.",
+        "ground_truth_context": [
+            "Asansör Yönetmeliği Madde 10 (6): Bina sorumlusunun belirleyeceği kişiye/kişilere asansör monte eden veya yetkili servisi tarafından yılda en az bir defa kurtarma eğitimi verilir."
+        ]
+    },
+    {
+        "question": "Binada kaç tane yangın söndürme tüpü bulundurmak zorundayız?",
+        "ground_truth_answer": "Düşük tehlike sınıfında her 500 m² için, orta ve yüksek tehlike sınıfında her 250 m² yapı inşaat alanı için 1 adet olmak üzere, uygun tipte 6 kg’lık yangın söndürme cihazı bulundurulması gerekir.",
+        "ground_truth_context": [
+            "Yangın Yönetmeliği Madde 99 (2): Taşınabilir söndürme cihazlarında söndürücünün kütlesi en az 6 kg olmalıdır. Düşük tehlike sınıfında her 500 m2, orta ve yüksekte her 250 m2 alan için bir adet bulundurulur."
+        ]
+    },
+    {
+        "question": "Daire kapısından yangın merdivenine mesafe en fazla kaç metre olabilir?",
+        "ground_truth_answer": "Konut içindeki herhangi bir noktadan çıkış kapısına kadar olan uzaklık normalde 20 metreyi, yağmurlama sistemi olan konutlarda 30 metreyi geçmemelidir.",
+        "ground_truth_context": [
+            "Yangın Yönetmeliği Madde 48 (2): Konutlarda, bir bağımsız bölüm içindeki herhangi bir noktadan o birimin çıkış kapısına kadar olan mesafe 20 m'yi, yağmurlama sistemli binalarda 30 m'yi geçemez."
+        ]
+    },
+    {
+        "question": "Kaçış merdiveni kapıları kilitli olabilir mi?",
+        "ground_truth_answer": "Hayır. Kaçış yolu kapılarının el ile açılması ve kilitli tutulmaması gerekir.",
+        "ground_truth_context": [
+            "Yangın Yönetmeliği Madde 47 (2): Kaçış yolu kapılarının kanatlarının, kullanıcıların hareketini engellememesi ve kapıların kilitli tutulmaması gerekir."
+        ]
+    },
+    {
+        "question": "Komşum sürekli gürültü yapıyor ve kötü koku yayıyor, kanuni hakkım nedir?",
+        "ground_truth_answer": "Medeni Kanun'a göre herkes taşınmaz mülkiyetinden doğan yetkileri kullanırken komşularını olumsuz etkileyecek taşkınlıktan kaçınmalıdır. Gürültü yapmak, koku çıkartmak gibi rahatsızlıklar vermek yasaktır.",
+        "ground_truth_context": [
+            "TMK Madde 737: Herkes, taşınmaz mülkiyetinden doğan yetkileri kullanırken komşularını olumsuz yönde etkileyecek taşkınlıktan kaçınmakla yükümlüdür. Özellikle duman, buğu, kurum, toz, koku çıkartarak, gürültü veya sarsıntı yaparak komşuları rahatsız etmek yasaktır."
+        ]
+    },
+    {
+        "question": "Polis veya yönetici evime izinsiz girebilir mi?",
+        "ground_truth_answer": "Hayır. Anayasa'nın 21. maddesine göre kimsenin konutuna dokunulamaz. Hâkim kararı veya kanunla yetkili kılınmış merciin yazılı emri olmadıkça kimsenin konutuna girilemez ve arama yapılamaz.",
+        "ground_truth_context": [
+            "Anayasa Madde 21: Kimsenin konutuna dokunulamaz. Millî güvenlik, kamu düzeni, suç işlenmesinin önlenmesi... gibi sebeplerle hakim kararı olmadıkça kimsenin konutuna girilemez."
+        ]
+    },
+    {
+        "question": "Apartman yönetim planında kararların salt çoğunlukla alınacağı yazmasına rağmen, plan değişikliği için yöneticinin 4/5 çoğunluk istemesi hukuken doğru mudur? Hangi hüküm geçerlidir?",
+        "ground_truth_answer": "Yöneticinin kararı (Kanun) geçerlidir. Kat Mülkiyeti Kanunu'nun 28. maddesi emredici niteliktedir ve yönetim planının değiştirilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyunu şart koşar. Yönetim planındaki 'salt çoğunluk' maddesi, kanunun bu emredici hükmüne aykırı olduğu için geçersizdir.",
+        "ground_truth_context": [
+            "KMK Madde 28: Yönetim planının değiştirilmesi için bütün kat maliklerinin beşte dördünün oyu şarttır. Kat maliklerinin 33 üncü maddeye göre mahkemeye başvurma hakları saklıdır."
+        ]
+    },
+    {
+        "question": "Üst kattan su sızması durumunda komşunun 'konut dokunulmazlığı' gerekçesiyle tamirat için usta girişine izin vermemesi hukuken korunur mu? Hangi yasal yol izlenmelidir?",
+        "ground_truth_answer": "Konut dokunulmazlığı (Anayasa Md. 21) mutlak değildir; KMK Madde 23 uyarınca kat malikleri, diğer bölümlerdeki arızaların giderilmesi için kendi bölümlerine girilmesine izin vermekle yükümlüdür. Komşu rıza göstermezse, KMK Madde 33 uyarınca Sulh Hukuk Mahkemesi'nden 'Hâkimin Müdahalesi' istenerek mahkeme kararıyla (Anayasal 'hâkim kararı' istisnası) giriş sağlanabilir.",
+        "ground_truth_context": [
+            "Anayasa Madde 21: Kimsenin konutuna dokunulamaz... ancak hakim kararı veya kanunla yetkili kılınmış merciin yazılı emri olmadıkça konuta girilemez.",
+            "KMK Madde 23: Kat malikleri, diğer bir bağımsız bölümdeki veya ortak yerlerdeki arızaların giderilmesi... için kendi bağımsız bölümlerine girilmesine müsaade etmekle yükümlüdür.",
+            "KMK Madde 33: Hakim, ilgilileri dinledikten sonra, bu kanuna ve yönetim planına... göre derhal kararını verir."
+        ]
+    },
+    {
+        "question": "Aidat borcu için yönetimin doğrudan ev sahibine icra takibi başlatması durumunda, ev sahibinin 'kiracı varken bana gelemezsiniz' itirazı haklı mıdır?",
+        "ground_truth_answer": "Ev sahibi haksızdır. KMK Madde 22'ye göre kat maliki aidat borcundan birinci derecede sorumludur. Kiracı ise bu borçtan sadece kira miktarı ile sınırlı olarak ve malikle birlikte 'müştereken ve müteselsilen' sorumludur. Yönetici, alacak için ister malike ister kiracıya (veya her ikisine birden) başvurma konusunda seçimlik hakka sahiptir.",
+        "ground_truth_context": [
+            "KMK Madde 22: Kat malikinin, 20 nci madde uyarınca payına düşecek gider ve avans borcundan... bağımsız bölümlerin birinde kira akdine... dayanarak devamlı bir şekilde faydalananlar da müştereken ve müteselsilen sorumludur."
+        ]
+    },
+    {
+        "question": "Kat malikleri kurulu oy birliğiyle karar alsa dahi güvenlik gerekçesiyle yangın merdiveni kapılarını kilitli tutabilir mi?",
+        "ground_truth_answer": "Hayır, bu karar geçersizdir. Binaların Yangından Korunması Hakkında Yönetmelik Madde 47, kaçış yolu kapılarının kilitli tutulmamasını emreder. Kamu düzenini ve can güvenliğini ilgilendiren emredici hükümler, KMK Madde 27 uyarınca kat malikleri kurulunun özel kararlarından üstündür.",
+        "ground_truth_context": [
+            "Yangın Yönetmeliği Madde 47: Kaçış yolu kapılarının... kilitli tutulmaması gerekir.",
+            "KMK Madde 27: Anagayrimenkul, kat malikleri kurulunca yönetilir ve yönetim tarzı, kanunların emredici hükümleri saklı kalmak şartiyle, bu kurul tarafından kararlaştırılır."
+        ]
+    },
+    {
+        "question": "Binanın dış cephesinden kopan bir parçanın verdiği zarardan, bütçe onayı vermeyen kat malikleri mi yoksa yönetici mi sorumludur?",
+        "ground_truth_answer": "Yapı malikleri (kat malikleri) sorumludur. Türk Borçlar Kanunu Madde 69 uyarınca binanın bakım eksikliğinden doğan zararlardan yapı maliki kusursuz sorumludur. Yönetici, KMK Madde 35 kapsamında koruma görevini yerine getirmemiş olsa bile, asıl sorumluluk bütçeyi onaylamayan veya binanın bakımından sorumlu olan kat maliklerindedir.",
+        "ground_truth_context": [
+            "TBK Madde 69: Bir binanın veya diğer yapı eserlerinin yapımındaki bozukluktan veya bakımındaki eksiklikten doğan zarardan, bunların maliki sorumludur.",
+            "KMK Madde 35: Yöneticinin görevleri şunlardır... anagayrimenkulün korunması, bakımı ve onarımı için gereken tedbirlerin alınması."
+        ]
+    },
+    {
+        "question": "KMK herkesin gidere katılması gerektiğini söylerken, yönetim planında 'dükkanlar asansör giderinden muaftır' yazıyorsa dükkan sahibi asansör tamirine katılmalı mıdır?",
+        "ground_truth_answer": "Dükkan sahibi katılmaz. KMK Madde 20'nin genel kuralı 'aralarında başka türlü anlaşma olmadıkça' şartına bağlıdır. Yönetim planı kat malikleri arasındaki sözleşme hükmündedir (Madde 28) ve bu konuda özel bir muafiyet tanınmışsa, kanundaki genel paylaşıma göre önceliklidir.",
+        "ground_truth_context": [
+            "KMK Madde 20: Kat maliklerinden her biri aralarında başka türlü anlaşma olmadıkça... giderlere kendi arsa payı oranında katılmakla yükümlüdür.",
+            "KMK Madde 28: Yönetim planı, bütün kat maliklerini bağlıyan bir sözleşme hükmündedir."
+        ]
+    },
+    {
+        "question": "Kombi motorunun yanması gibi esaslı bir arızada, kombi demirbaş olduğu halde kiracı mı yoksa ev sahibi mi tamir giderini üstlenmelidir?",
+        "ground_truth_answer": "Esaslı tamiratı ev sahibi üstlenmelidir. TBK Madde 317 uyarınca kiracı sadece olağan kullanım için gereken temizlik ve bakım giderlerinden sorumludur. Parça bozulması veya motor yanması gibi mülkün kullanım elverişliliğini etkileyen 'ayıplar', TBK Madde 305 ve 306 gereği kiraya verenin (ev sahibinin) sorumluluk alanındadır.",
+        "ground_truth_context": [
+            "TBK Madde 317: Kiracı, kiralananın olağan kullanımı için gerekli temizlik ve bakım giderlerini ödemekle yükümlüdür.",
+            "TBK Madde 305: Kiralanan sonradan ayıplı hale gelirse kiracı, kiraya verenden ayıpların giderilmesini... isteyebilir."
+        ]
+    }
+]

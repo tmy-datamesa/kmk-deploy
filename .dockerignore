@@ -1,0 +1,26 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Streamlit (Frontend ayrı deploy edilecek)
+.streamlit/
+
+# Local data & logs
+data/chroma_db/
+mlflow.db
+mlruns/
+evaluation_results.csv
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
