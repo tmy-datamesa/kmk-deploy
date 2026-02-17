@@ -24,7 +24,7 @@ Sistem, **Retrieval-Augmented Generation (RAG)** tekniğini ve **Agentic (Ajan) 
 ### 🤖 Yapay Zeka & NLP
 | Teknoloji | Ne İçin Kullanıldı? |
 |-----------|-------------------|
-| **OpenAI GPT-4o-mini** | Metin üretimi (LLM) — Soruları anlama ve cevap oluşturma |
+| **OpenAI GPT-4o** | Metin üretimi (LLM) — Soruları anlama ve cevap oluşturma |
 | **OpenAI text-embedding-3-small** | Metin vektörleştirme — Kanun maddelerini sayısal vektörlere çevirme |
 | **OpenAI Function Calling (Tools)** | Ajan mimarisi — LLM'in hangi kanunu arayacağına karar vermesi |
 
@@ -76,7 +76,7 @@ Sistem, **Retrieval-Augmented Generation (RAG)** tekniğini ve **Agentic (Ajan) 
 └─────────────────┘         │    ▼                              │
                             │  LegalRAG Agent (agent.py)        │
                             │    │                              │
-                            │    ├── OpenAI API (GPT-4o-mini)   │
+                            │    ├── OpenAI API (GPT-4o)   │
                             │    │   └── Function Calling       │
                             │    │                              │
                             │    └── RAG Engine (rag_engine.py) │
@@ -91,7 +91,7 @@ Sistem, **Retrieval-Augmented Generation (RAG)** tekniğini ve **Agentic (Ajan) 
 1. Kullanıcı soru yazar  →  Streamlit Cloud (app.py)
 2. HTTP POST /ask        →  Cloud Run (app_api.py)
 3. LegalRAG.generate_answer() çalışır:
-   a. Soru GPT-4o-mini'ye gönderilir
+   a. Soru GPT-4o'ye gönderilir
    b. GPT, hangi kanunu arayacağına karar verir (Function Calling)
       Örn: "search_kmk" veya "search_tbk"
    c. İlgili kanunun ChromaDB koleksiyonunda vektör araması yapılır
@@ -169,7 +169,7 @@ Klasik RAG'den farkı: Sistem **tek bir veritabanında** arama yapmak yerine, **
 Kullanıcı Sorusu
       │
       ▼
-  GPT-4o-mini (Function Calling)
+  GPT-4o (Function Calling)
       │
       ├── "Aidat ödemezsem?"     → search_kmk() → KMK koleksiyonu
       ├── "Kiracı depozitosu?"   → search_tbk() → TBK koleksiyonu
@@ -181,7 +181,7 @@ Kullanıcı Sorusu
 
 | Parametre | Değer | Açıklama |
 |-----------|-------|----------|
-| LLM Model | `gpt-4o-mini` | Maliyet/performans dengesi |
+| LLM Model | `gpt-4o` | Maliyet/performans dengesi |
 | Embedding Model | `text-embedding-3-small` | Hızlı ve verimli vektörleştirme |
 | Top-K | 6 | Her aramada döndürülen sonuç sayısı |
 | Temperature | 0.0 | Deterministik cevaplar (yaratıcılık yok) |
@@ -306,9 +306,3 @@ gcloud run deploy legal-rag-api \
 
 ---
 
-## 12. Gelecek Planları
-
-- [ ] CI/CD pipeline (GitHub Actions → otomatik Cloud Run deploy)
-- [ ] Kullanıcı geri bildirim sistemi (cevap kalitesi takibi)
-- [ ] Daha fazla hukuk kaynağı eklenmesi
-- [ ] Cevaplarda ilgili mahkeme kararlarına referans verilmesi

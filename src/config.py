@@ -21,7 +21,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 # ==============================================================================
 # 2. MODEL AYARLARI
 # ==============================================================================
-LLM_MODEL = "gpt-4o-mini" # Maliyet/Performans için optimize model
+LLM_MODEL = "gpt-4o" # Ana dil modeli (cevap üretimi ve araç seçimi)
 EMBEDDING_MODEL = "text-embedding-3-small" # Vektörleştirme modeli
 
 # ==============================================================================
