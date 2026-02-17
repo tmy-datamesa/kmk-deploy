@@ -223,9 +223,9 @@ class LegalRAG:
 
             # --- 4. ADIM: Kaynak Referansını Koddan Ekle ---
             # LLM'in madde numarası uydurmak yerine, chunk'lardan
-            # regex ile çekilen gerçek madde numaralarını başa ekle.
+            # regex ile çekilen gerçek madde numaralarını sona ekle.
             ref_header = self._extract_article_refs(used_sources)
             if ref_header:
-                answer = f"{ref_header}\n\n{answer}"
+                answer = f"{answer}\n\n{ref_header}"
 
             return answer, used_sources

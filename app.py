@@ -25,8 +25,8 @@ st.set_page_config(
     page_icon="⚖️",
     layout="centered"
 )
-st.title("⚖️ Komşuluk & Apartman Hukuku Asistanı")
-st.caption("Uzmanlık Alanı: Site Yönetimi, Komşuluk İlişkileri ve Apartman Sorunları (KMK Odaklı)")
+st.title("Komşuluk & Apartman Hukuku Asistanı")
+st.caption("⚖️ Multi-Law Agentic RAG Platformu | Hukuki tavsiye niteliği taşımaz")
 
 # ==============================================================================
 # 2.5. YAN MENÜ (Sidebar) - Proje Bilgisi & Teknik Detaylar
@@ -114,19 +114,9 @@ if prompt := st.chat_input("Sorunuzu buraya yazın..."):
                 data = resp.json()
                 
                 cevap = data["answer"]
-                kaynaklar = data.get("sources", [])
                 
                 # Cevabı Göster
                 st.markdown(cevap)
-                
-                # Kaynakları Göster
-                if kaynaklar:
-                    with st.expander("📚 Başvurulan Kanun Maddeleri ve Kaynaklar"):
-                        for i, src in enumerate(kaynaklar):
-                            st.markdown(f"**Kaynak {i+1}: {src['doc_name']}**")
-                            clean = src["content"] if len(src["content"]) < 600 else src["content"][:600] + "..."
-                            st.markdown(f"> {clean}")
-                            st.divider()
                 
                 # Cevabı hafızaya kaydet
                 st.session_state.messages.append({"role": "assistant", "content": cevap})
