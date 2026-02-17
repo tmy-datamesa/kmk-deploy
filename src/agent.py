@@ -12,6 +12,7 @@ aranacağına LLM'in kendisi karar verir — bu yaklaşıma
 
 from openai import OpenAI
 import json
+import re
 import mlflow
 from src import config
 from src.rag_engine import LegalRAGTool
@@ -54,41 +55,71 @@ class LegalRAG:
         hukuki kuralları (Normlar Hiyerarşisi vb.) burada tanımlıyoruz.
         """
         return """
-        Sen Uzman bir "Apartman ve Site Yönetimi" Asistanısın. 
-        
-        GÖREVİNİN KAPSAMI (ÇOK ÖNEMLİ):
-        Sen sadece "Kat Mülkiyeti Kanunu" ve buna bağlı apartman/site yaşamı (komşuluk, aidat, yönetim, tadilat vb.) konularında uzmansın.
-        
-        Diğer kanunları (TBK, TMK, Anayasa) SADECE ve SADECE apartman/site bağlamında ilgiliyse kullan.
-        Örneğin:
-        - "Kiracı evden nasıl çıkarılır?" -> CEVAP VER (İlgili: TBK - Konut Kiraları)
-        - "Boşanma davası nasıl açılır?" -> REDDET ("Ben sadece apartman ve komşuluk hukuku konularında yardımcı olabilirim" de).
-        - "Şirket nasıl kurulur?" -> REDDET.
-        
-        CEVAP TARZI VE AKIŞI:
-        Cevapların robotik olmasın, doğal ve akıcı bir dil kullan. Cevabı şu sırayla oluştur:
-        
-        1. **Doğrudan Cevap ve Dayanak**:
-           - Eğer soru "Evet/Hayır" cevabı gerektiriyorsa (Örn: "Ödemek zorunda mıyım?"): "Evet" veya "Hayır" diyerek net bir giriş yap ve dayandığı kanun maddesini belirt (Örn: "Evet, Kat Mülkiyeti Kanunu Madde 20 uyarınca ödemek zorundasınız.").
-           - Eğer soru "Nedir/Nasıldır/Kimdir" gibi açık uçluysa (Örn: "Yöneticinin görevleri nelerdir?"): Söze "Evet/Hayır" ile BAŞLAMA. Doğrudan cevabı vererek girizgah yap (Örn: "Kat Mülkiyeti Kanunu Madde 35 uyarınca yöneticinin görevleri şunlardır...").
+        Sen apartman, site ve konut hukuku konusunda uzman bir asistansın.
+        Görevin: Kat Mülkiyeti Kanunu, Türk Borçlar Kanunu, Türk Medeni Kanunu,
+        Anayasa ve ilgili yönetmelikler (asansör, yangın vb.) hakkındaki soruları
+        SADECE sana verilen bağlam (context) bilgisine dayanarak cevaplamak.
 
-        2. **Açıklama**: Sonraki paragraflarda durumu vatandaşın anlayacağı basit ve net bir dille, "Özet Cevap" veya "Yasal Dayanak" gibi başlıklar kullanmadan açıkla.
-        
-        NORMLAR HİYERARŞİSİ VE ÇATIŞMA ÇÖZÜMÜ:
-        Hukuki metinler arasında çelişki olursa şu üstünlük sırasını takip et:
-        1. Anayasa
-        2. Kanun (KMK, TBK, TMK)
-        3. Yönetmelik
-        4. Yönetim Planı
+        CEVAP FORMATI (ZORUNLU):
+        - Soruyu doğrudan ve eksiksiz cevapla. Sorulan şeyin cevabını atla geçme.
+        - Cevabını tek paragraf halinde yaz. Uzun açıklamalar yapma ama soruyu tam karşıla.
+        - Cevabına ilgili kanun veya yönetmeliğin ismiyle başla.
+          Örnekler: "Kat Mülkiyeti Kanunu uyarınca, ...", "Türk Borçlar Kanunu uyarınca, ..."
+        - Madde numarası YAZMA. Kaynak referansı sistem tarafından otomatik ekleniyor.
+        - Başlık, madde işareti, numara listesi KULLANMA. Düz metin yaz.
 
-        ÖNEMLİ: Eğer Yönetim Planı veya bir Sözleşme maddesi, Kanun'un emredici hükümlerine aykırıysa (Örn: KMK Md. 28'deki 4/5 oy kuralı), KANUN'un üstün olduğunu belirt. Şöyle de: "Yönetim planında aksine hüküm olsa da, Kanun emredicidir ve Kanun geçerlidir."
-
-        KURALLAR:
-        1. Apartman/Site ile ilgili sorularda ÖNCELİKLE "Kat Mülkiyeti Kanunu"nu kullan.
-        2. SADECE sana verilen bağlamdaki (context) bilgileri kullan. Bağlamda yoksa "Bilgi bulunamadı" de.
-        3. Asla madde numarası uydurma (Hallucination yapma).
-        4. Hukuk dışı konularda cevap verme.
+        KRİTİK KURALLAR:
+        1. SADECE sana verilen bağlamdaki bilgiyi kullan. Bağlamda olmayan bilgiyi EKLEME.
+        2. Bağlamda bilgi yoksa sadece "Bu konuda verilen metinlerde bilgi bulunmamaktadır." de.
+        3. Cevabı Türkçe yaz.
         """
+
+    def _extract_article_refs(self, sources):
+        """
+        MADDE NUMARASI ÇIKARICI (Hallucination Önleyici)
+        ------------------------------------------------
+        Ne Yapar: Retrieved chunk'ların ham metninden regex ile
+        madde numaralarını çeker ve kaynak adına göre gruplar.
+
+        Girdi: sources — [{'content': '...Madde 20...', 'metadata': {'doc_name': 'Kat Mülkiyeti Kanunu'}}]
+        Çıktı: "📌 Kaynak: Kat Mülkiyeti Kanunu (Madde 20, 4)"
+
+        Neden: LLM bazen doğru maddeyi bilse de numarayı yanlış yazabilir
+        (hallucination). Bu fonksiyon sadece gerçekten chunk'ta geçen
+        madde numaralarını kullanır.
+        """
+        # Her kaynak dokümanı için bulunan madde numaralarını topla
+        doc_articles = {}  # {'Kat Mülkiyeti Kanunu': {20, 4, 25}, ...}
+
+        for src in sources:
+            doc_name = src.get("metadata", {}).get("doc_name", "Bilinmiyor")
+            content = src.get("content", "")
+
+            # Regex: "Madde 20", "Ek Madde 3", "Geçici Madde 1" gibi kalıpları yakala
+            # Negatif lookbehind ile "Ek Madde" ve "Geçici Madde" ayrı yakalanır
+            patterns = re.findall(r'(?:Ek Madde|Geçici Madde|Madde)\s+(\d+)', content)
+
+            if doc_name not in doc_articles:
+                doc_articles[doc_name] = set()
+            # Bulunan numaraları set'e ekle (tekrar önleme)
+            doc_articles[doc_name].update(patterns)
+
+        # Hiç madde bulunamadıysa boş döndür
+        if not doc_articles or all(len(v) == 0 for v in doc_articles.values()):
+            return ""
+
+        # Formatla: "📌 Kaynak: KMK (Madde 4, 20) | TBK (Madde 314)"
+        parts = []
+        for doc_name, articles in doc_articles.items():
+            if articles:
+                # Madde numaralarını sayısal sıraya koy
+                sorted_articles = sorted(articles, key=int)
+                madde_str = ", ".join([f"Madde {a}" for a in sorted_articles])
+                parts.append(f"{doc_name} ({madde_str})")
+            else:
+                parts.append(doc_name)
+
+        return "📌 Kaynak: " + " | ".join(parts)
 
     def _get_openai_tools(self):
         """
@@ -189,5 +220,12 @@ class LegalRAG:
             else:
                 # Araç çağırmadıysa doğrudan cevabı döndür
                 answer = msg.content
-                
+
+            # --- 4. ADIM: Kaynak Referansını Koddan Ekle ---
+            # LLM'in madde numarası uydurmak yerine, chunk'lardan
+            # regex ile çekilen gerçek madde numaralarını sona ekle.
+            ref_header = self._extract_article_refs(used_sources)
+            if ref_header:
+                answer = f"{answer}\n\n{ref_header}"
+
             return answer, used_sources
