@@ -1,105 +1,105 @@
 [
     {
         "question": "Çatı akıyor, tamir masrafına zemin kattaki dükkan katılmak zorunda mı?",
-        "ground_truth_answer": "634 Sayılı KMK Madde 20 uyarınca, yönetim planında aksine bir hüküm bulunmadığı sürece; çatı ortak yer sayıldığından zemin kattaki dükkan sahibi de masraflara arsa payı oranında katılmak zorundadır. Kat malikleri, kendi bölümlerinin durumu dolayısıyla ortak yerlerden faydalanmaya ihtiyaç bulunmadığını ileri sürerek bu gideri ödemekten kaçınamazlar.",
+        "ground_truth_answer": "Kat Mülkiyeti Kanunu uyarınca, yönetim planında aksine bir hüküm bulunmadığı sürece çatı ortak yer sayıldığından zemin kattaki dükkan sahibi de masraflara arsa payı oranında katılmak zorundadır. Kat malikleri, kendi bölümlerinin durumu dolayısıyla ortak yerlerden faydalanmaya ihtiyaç bulunmadığını ileri sürerek bu gideri ödemekten kaçınamazlar.",
         "ground_truth_context": [
             "KMK Madde 4 ve Madde 20/c"
         ]
     },
     {
         "question": "Apartman yönetim planını değiştirmek için kaç kişinin oyu gerekir?",
-        "ground_truth_answer": "634 Sayılı KMK Madde 28 uyarınca, yönetim planının değiştirilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu şarttır. Bu hüküm emredici olup yönetim planı ile değiştirilemez.",
+        "ground_truth_answer": "Kat Mülkiyeti Kanunu uyarınca, yönetim planının değiştirilmesi için bütün kat maliklerinin beşte dördünün (4/5) oyu şarttır. Bu hüküm emredici olup yönetim planı ile değiştirilemez.",
         "ground_truth_context": [
             "KMK Madde 28"
         ]
     },
     {
         "question": "Kat malikleri toplantısı ne zaman yapılır?",
-        "ground_truth_answer": "634 Sayılı KMK Madde 29 uyarınca, yönetim planında aksine bir zaman gösterilmemişse, kurul her takvim yılının ilk ayı içinde toplanır.",
+        "ground_truth_answer": "Kat Mülkiyeti Kanunu uyarınca, yönetim planında aksine bir zaman gösterilmemişse, kat malikleri kurulu her takvim yılının ilk ayı içinde toplanır.",
         "ground_truth_context": [
             "KMK Madde 29"
         ]
     },
     {
         "question": "Komşum evini randevu evi veya kumarhane olarak kullanıyor, ne yapabiliriz?",
-        "ground_truth_answer": "634 Sayılı KMK Madde 25 uyarınca, dairesini ahlak ve adaba aykırı şekilde randevu evi veya kumarhane olarak kullanan malike karşı diğer malikler, mülkiyet hakkının kendilerine devredilmesini hakimden talep edebilirler.",
+        "ground_truth_answer": "Kat Mülkiyeti Kanunu uyarınca, dairesini ahlak ve adaba aykırı şekilde randevu evi veya kumarhane olarak kullanan malike karşı diğer malikler, mülkiyet hakkının kendilerine devredilmesini hakimden talep edebilirler.",
         "ground_truth_context": [
             "KMK Madde 25/c"
         ]
     },
     {
         "question": "Kiracıyım, kirayı en geç ne zaman ödemem gerekir?",
-        "ground_truth_answer": "6098 Sayılı Türk Borçlar Kanunu Madde 314 uyarınca, aksine bir sözleşme veya yerel âdet yoksa, kira bedeli her ayın sonunda ve en geç kira süresinin bitiminde ödenmelidir.",
+        "ground_truth_answer": "Türk Borçlar Kanunu uyarınca, aksine bir sözleşme veya yerel âdet yoksa, kira bedeli her ayın sonunda ve en geç kira süresinin bitiminde ödenmelidir.",
         "ground_truth_context": [
             "TBK Madde 314"
         ]
     },
     {
         "question": "Evde sonradan bir ayıp (kusur) çıkarsa kiracı olarak haklarım nelerdir?",
-        "ground_truth_answer": "6098 Sayılı Türk Borçlar Kanunu Madde 305 uyarınca, kiralanan sonradan ayıplı hale gelirse kiracı; ayıbın giderilmesini, kira bedelinden indirim yapılmasını veya zararının giderilmesini talep edebilir. Önemli ayıp halinde fesih hakkı saklıdır.",
+        "ground_truth_answer": "Türk Borçlar Kanunu uyarınca, kiralanan sonradan ayıplı hale gelirse kiracı; ayıbın giderilmesini, kira bedelinden indirim yapılmasını veya zararının giderilmesini talep edebilir. Önemli ayıp halinde fesih hakkı saklıdır.",
         "ground_truth_context": [
             "TBK Madde 305"
         ]
     },
     {
         "question": "Kiracı komşulara saygısızlık yaparsa ev sahibi ne yapabilir?",
-        "ground_truth_answer": "6098 Sayılı Türk Borçlar Kanunu Madde 316 uyarınca, kiracı komşulara gerekli saygıyı göstermekle yükümlüdür. Aykırılık durumunda ev sahibi, en az 30 gün süre vererek yazılı ihtar gönderir; durum düzelmezse sözleşmeyi feshedebilir.",
+        "ground_truth_answer": "Türk Borçlar Kanunu uyarınca, kiracı komşulara gerekli saygıyı göstermekle yükümlüdür. Aykırılık durumunda ev sahibi, en az 30 gün süre vererek yazılı ihtar gönderir; durum düzelmezse sözleşmeyi feshedebilir.",
         "ground_truth_context": [
             "TBK Madde 316"
         ]
     },
     {
         "question": "Apartman asansörünün bakımını ne sıklıkla yaptırmalıyız?",
-        "ground_truth_answer": "Asansör İşletme ve Bakım Yönetmeliği Madde 8 uyarınca, asansörün bakımı yetkili servis tarafından periyodik olarak ayda en az bir defa yapılmalıdır.",
+        "ground_truth_answer": "Asansör İşletme ve Bakım Yönetmeliği uyarınca, asansörün bakımı yetkili servis tarafından periyodik olarak ayda en az bir defa yapılmalıdır.",
         "ground_truth_context": [
             "Asansör İşletme ve Bakım Yönetmeliği Madde 8"
         ]
     },
     {
         "question": "Asansör denetiminde kırmızı etiket aldı, kullanmaya devam edebilir miyiz?",
-        "ground_truth_answer": "Asansör İşletme ve Bakım Yönetmeliği Madde 10 uyarınca, kırmızı etiketli (güvensiz) asansörün kullanılması yasaktır ve güvenli hale getirilene kadar bakım hizmeti sunulamaz.",
+        "ground_truth_answer": "Asansör İşletme ve Bakım Yönetmeliği uyarınca, kırmızı etiketli (güvensiz) asansörün kullanılması yasaktır ve güvenli hale getirilene kadar bakım hizmeti sunulamaz.",
         "ground_truth_context": [
             "Asansör İşletme ve Bakım Yönetmeliği Madde 10/11"
         ]
     },
     {
         "question": "Binada kaç tane yangın söndürme tüpü bulundurmak zorundayız?",
-        "ground_truth_answer": "Binaların Yangından Korunması Hakkında Yönetmelik Madde 99 uyarınca, düşük tehlike sınıfında her 500 m2, orta ve yüksek tehlikede her 250 m2 alan için en az bir adet 6 kg'lık söndürme cihazı bulundurulmalıdır.",
+        "ground_truth_answer": "Binaların Yangından Korunması Hakkında Yönetmelik uyarınca, düşük tehlike sınıfında her 500 m2, orta ve yüksek tehlikede her 250 m2 alan için en az bir adet 6 kg'lık söndürme cihazı bulundurulmalıdır.",
         "ground_truth_context": [
             "Yangın Yönetmeliği Madde 99/2"
         ]
     },
     {
         "question": "Apartman yönetim planında 'kararlar salt çoğunlukla alınır' yazıyor. Plan değişikliği için bu kural geçerli mi?",
-        "ground_truth_answer": "Hayır, 634 Sayılı KMK Madde 28 uyarınca yönetim planı değişikliği için 4/5 çoğunluk şartı emredici hükümdür. Yönetim planındaki aksine hükümler kanunun bu maddesi karşısında geçersizdir.",
+        "ground_truth_answer": "Hayır, Kat Mülkiyeti Kanunu uyarınca yönetim planı değişikliği için 4/5 çoğunluk şartı emredici hükümdür. Yönetim planındaki aksine hükümler kanunun bu maddesi karşısında geçersizdir.",
         "ground_truth_context": [
             "KMK Madde 28 ve Madde 27"
         ]
     },
     {
         "question": "Komşum su sızıntısı tamiri için usta girişine izin vermiyor, 'konut dokunulmazlığı' diyebilir mi?",
-        "ground_truth_answer": "Hayır. Türkiye Cumhuriyeti Anayasası Madde 21 konut dokunulmazlığını korur ancak 634 Sayılı KMK Madde 23, ortak yerlerdeki veya diğer bölümlerdeki arızaların giderilmesi için malikin kendi bölümüne girişe izin vermesini zorunlu kılar. İzin verilmezse Madde 33 uyarınca hakim müdahalesi istenir.",
+        "ground_truth_answer": "Hayır. Anayasa konut dokunulmazlığını korur ancak Kat Mülkiyeti Kanunu, ortak yerlerdeki veya diğer bölümlerdeki arızaların giderilmesi için malikin kendi bölümüne girişe izin vermesini zorunlu kılar. İzin verilmezse hakim müdahalesi istenebilir.",
         "ground_truth_context": [
             "Anayasa Md. 21, KMK Md. 23 ve 33"
         ]
     },
     {
         "question": "Ev sahibi 'Aidat borcu için kiracıya gidin' diyebilir mi?",
-        "ground_truth_answer": "Hayır, 634 Sayılı KMK Madde 22 uyarınca kat maliki giderlerden asıl sorumludur. Kiracı sadece ödemekle yükümlü olduğu kira miktarı ile sınırlı olarak malikle birlikte müştereken ve müteselsilen sorumludur.",
+        "ground_truth_answer": "Hayır, Kat Mülkiyeti Kanunu uyarınca kat maliki giderlerden asıl sorumludur. Kiracı sadece ödemekle yükümlü olduğu kira miktarı ile sınırlı olarak malikle birlikte müştereken ve müteselsilen sorumludur.",
         "ground_truth_context": [
             "KMK Madde 22"
         ]
     },
     {
         "question": "Komşum sürekli gürültü yapıyor ve kötü koku yayıyor, kanuni hakkım nedir?",
-        "ground_truth_answer": "4721 Sayılı Türk Medeni Kanunu Madde 737 uyarınca, her malik komşularını olumsuz etkileyecek taşkınlıklardan (gürültü, koku, duman vb.) kaçınmakla yükümlüdür.",
+        "ground_truth_answer": "Türk Medeni Kanunu uyarınca, her malik komşularını olumsuz etkileyecek taşkınlıklardan (gürültü, koku, duman vb.) kaçınmakla yükümlüdür.",
         "ground_truth_context": [
             "TMK Madde 737"
         ]
     },
     {
         "question": "Polis veya yönetici evime izinsiz girebilir mi?",
-        "ground_truth_answer": "Hayır. Türkiye Cumhuriyeti Anayasası Madde 21 uyarınca, hakim kararı veya kanunla yetkili kılınmış merciin yazılı emri olmadıkça kimsenin konutuna girilemez.",
+        "ground_truth_answer": "Hayır. Anayasa uyarınca, hakim kararı veya kanunla yetkili kılınmış merciin yazılı emri olmadıkça kimsenin konutuna girilemez.",
         "ground_truth_context": [
             "Anayasa Madde 21"
         ]

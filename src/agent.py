@@ -12,6 +12,7 @@ aranacağına LLM'in kendisi karar verir — bu yaklaşıma
 
 from openai import OpenAI
 import json
+import re
 import mlflow
 from src import config
 from src.rag_engine import LegalRAGTool
@@ -62,22 +63,63 @@ class LegalRAG:
         CEVAP FORMATI (ZORUNLU):
         - Soruyu doğrudan ve eksiksiz cevapla. Sorulan şeyin cevabını atla geçme.
         - Cevabını tek paragraf halinde yaz. Uzun açıklamalar yapma ama soruyu tam karşıla.
-        - Cevaba mutlaka kanun referansı ile başla. Format:
-          "[Kanun Sayısı] Sayılı [Kanun Adı] Madde [X] uyarınca, ..."
-          Örnekler:
-          - "634 Sayılı KMK Madde 20 uyarınca, ..."
-          - "6098 Sayılı Türk Borçlar Kanunu Madde 314 uyarınca, ..."
-          - "Asansör İşletme ve Bakım Yönetmeliği Madde 8 uyarınca, ..."
-          - "Türkiye Cumhuriyeti Anayasası Madde 21 uyarınca, ..."
+        - Cevabına ilgili kanun veya yönetmeliğin ismiyle başla.
+          Örnekler: "Kat Mülkiyeti Kanunu uyarınca, ...", "Türk Borçlar Kanunu uyarınca, ..."
+        - Madde numarası YAZMA. Kaynak referansı sistem tarafından otomatik ekleniyor.
         - Başlık, madde işareti, numara listesi KULLANMA. Düz metin yaz.
-        - "Özet", "Yasal Dayanak", "Sonuç" gibi bölüm başlıkları KULLANMA.
 
         KRİTİK KURALLAR:
         1. SADECE sana verilen bağlamdaki bilgiyi kullan. Bağlamda olmayan bilgiyi EKLEME.
-        2. Madde numarası bağlamda geçmiyorsa UYDURMA.
-        3. Bağlamda bilgi yoksa sadece "Bu konuda verilen metinlerde bilgi bulunmamaktadır." de.
-        4. Cevabı Türkçe yaz.
+        2. Bağlamda bilgi yoksa sadece "Bu konuda verilen metinlerde bilgi bulunmamaktadır." de.
+        3. Cevabı Türkçe yaz.
         """
+
+    def _extract_article_refs(self, sources):
+        """
+        MADDE NUMARASI ÇIKARICI (Hallucination Önleyici)
+        ------------------------------------------------
+        Ne Yapar: Retrieved chunk'ların ham metninden regex ile
+        madde numaralarını çeker ve kaynak adına göre gruplar.
+
+        Girdi: sources — [{'content': '...Madde 20...', 'metadata': {'doc_name': 'Kat Mülkiyeti Kanunu'}}]
+        Çıktı: "📌 Kaynak: Kat Mülkiyeti Kanunu (Madde 20, 4)"
+
+        Neden: LLM bazen doğru maddeyi bilse de numarayı yanlış yazabilir
+        (hallucination). Bu fonksiyon sadece gerçekten chunk'ta geçen
+        madde numaralarını kullanır.
+        """
+        # Her kaynak dokümanı için bulunan madde numaralarını topla
+        doc_articles = {}  # {'Kat Mülkiyeti Kanunu': {20, 4, 25}, ...}
+
+        for src in sources:
+            doc_name = src.get("metadata", {}).get("doc_name", "Bilinmiyor")
+            content = src.get("content", "")
+
+            # Regex: "Madde 20", "Ek Madde 3", "Geçici Madde 1" gibi kalıpları yakala
+            # Negatif lookbehind ile "Ek Madde" ve "Geçici Madde" ayrı yakalanır
+            patterns = re.findall(r'(?:Ek Madde|Geçici Madde|Madde)\s+(\d+)', content)
+
+            if doc_name not in doc_articles:
+                doc_articles[doc_name] = set()
+            # Bulunan numaraları set'e ekle (tekrar önleme)
+            doc_articles[doc_name].update(patterns)
+
+        # Hiç madde bulunamadıysa boş döndür
+        if not doc_articles or all(len(v) == 0 for v in doc_articles.values()):
+            return ""
+
+        # Formatla: "📌 Kaynak: KMK (Madde 4, 20) | TBK (Madde 314)"
+        parts = []
+        for doc_name, articles in doc_articles.items():
+            if articles:
+                # Madde numaralarını sayısal sıraya koy
+                sorted_articles = sorted(articles, key=int)
+                madde_str = ", ".join([f"Madde {a}" for a in sorted_articles])
+                parts.append(f"{doc_name} ({madde_str})")
+            else:
+                parts.append(doc_name)
+
+        return "📌 Kaynak: " + " | ".join(parts)
 
     def _get_openai_tools(self):
         """
@@ -178,5 +220,12 @@ class LegalRAG:
             else:
                 # Araç çağırmadıysa doğrudan cevabı döndür
                 answer = msg.content
-                
+
+            # --- 4. ADIM: Kaynak Referansını Koddan Ekle ---
+            # LLM'in madde numarası uydurmak yerine, chunk'lardan
+            # regex ile çekilen gerçek madde numaralarını başa ekle.
+            ref_header = self._extract_article_refs(used_sources)
+            if ref_header:
+                answer = f"{ref_header}\n\n{answer}"
+
             return answer, used_sources

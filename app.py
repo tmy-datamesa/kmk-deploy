@@ -55,7 +55,7 @@ with st.sidebar:
     st.caption("Bu ayarlar sabittir, sadece bilgi amaçlı gösterilmektedir.")
     
     st.markdown("### 🧠 Model Yapısı")
-    st.markdown("**LLM:** `gpt-4o-mini`")
+    st.markdown("**LLM:** `gpt-4o`")
     st.markdown("**Embedding:** `text-embedding-3-small`")
     st.markdown("**Vektör DB:** `ChromaDB (Cloud)`")
 
