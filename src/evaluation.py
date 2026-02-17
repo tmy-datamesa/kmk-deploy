@@ -71,7 +71,9 @@ def run_evaluation():
     print("RAGAS Metrikleri Hesaplanıyor...")
     
     # LLM ve Embedding modellerini açıkça belirtiyoruz
-    eval_llm = ChatOpenAI(model=config.LLM_MODEL, api_key=config.OPENAI_API_KEY)
+    # Değerlendirme LLM'i: gpt-4o kullanıyoruz çünkü RAGAS'ın ters soru üretme
+    # adımı daha güçlü bir model ile daha doğru sonuç veriyor.
+    eval_llm = ChatOpenAI(model="gpt-4o", api_key=config.OPENAI_API_KEY)
     eval_embeddings = OpenAIEmbeddings(model=config.EMBEDDING_MODEL, api_key=config.OPENAI_API_KEY)
 
     scores = evaluate(
