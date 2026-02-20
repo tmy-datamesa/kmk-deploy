@@ -18,7 +18,7 @@ import time
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 # ==============================================================================
-# 2. SAYFA AYARLARI (Page Config)
+# 2. SAYFA AYARLARI
 # ==============================================================================
 st.set_page_config(
     page_title="Multi-Law Legal Agent",
@@ -29,7 +29,7 @@ st.title("Komşuluk & Apartman Hukuku Asistanı")
 st.caption("⚖️ Multi-Law Agentic RAG Platformu | Hukuki tavsiye niteliği taşımaz")
 
 # ==============================================================================
-# 2.5. YAN MENÜ (Sidebar) - Proje Bilgisi & Teknik Detaylar
+# 2.5. YAN MENÜ - Proje Bilgisi & Teknik Detaylar
 # ==============================================================================
 with st.sidebar:
     st.header("📌 Proje Hakkında")
@@ -80,7 +80,7 @@ if "backend_ready" not in st.session_state:
         st.stop()
 
 # ==============================================================================
-# 4. SOHBET GEÇMİŞİ (Chat History)
+# 4. SOHBET GEÇMİŞİ
 # ==============================================================================
 if "messages" not in st.session_state:
     st.session_state.messages = [
@@ -92,7 +92,7 @@ for msg in st.session_state.messages:
         st.markdown(msg["content"])
 
 # ==============================================================================
-# 5. KULLANICI ETKİLEŞİMİ (User Input)
+# 5. KULLANICI ETKİLEŞİMİ
 # ==============================================================================
 if prompt := st.chat_input("Sorunuzu buraya yazın..."):
     # 1. Kullanıcı mesajını ekrana ekle
