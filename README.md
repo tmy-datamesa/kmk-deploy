@@ -8,7 +8,6 @@
 ---
 
 ## 1. Proje Hakkında
-![Uploading image.png…]()
 
 Bu proje, **Kat Mülkiyeti Kanunu (KMK)** başta olmak üzere **6 farklı hukuk kaynağını** kullanarak apartman ve site yönetimiyle ilgili hukuki soruları yanıtlayan bir **Yapay Zeka Asistanı**dır.
 
