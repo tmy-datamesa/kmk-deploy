@@ -8,6 +8,7 @@
 ---
 
 ## 1. Proje Hakkında
+<img width="1331" height="748" alt="image" src="https://github.com/user-attachments/assets/337c6cdb-e3d3-4194-97a7-9d2614f9485f" />
 
 Bu proje, **Kat Mülkiyeti Kanunu (KMK)** başta olmak üzere **6 farklı hukuk kaynağını** kullanarak apartman ve site yönetimiyle ilgili hukuki soruları yanıtlayan bir **Yapay Zeka Asistanı**dır.
 
@@ -305,5 +306,6 @@ gcloud run deploy legal-rag-api \
 - LLM'in ürettiği cevaplar her zaman %100 doğru olmayabilir.
 
 ---
+
 
 
