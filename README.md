@@ -18,6 +18,8 @@ Sistem, **Retrieval-Augmented Generation (RAG)** tekniğini ve **Agentic (Ajan) 
 3. İlgili kanun maddelerini vektör veritabanından bulur,
 4. Bulunan bilgilere dayanarak **doğru ve kaynaklı** bir cevap üretir.
 
+<img width="1778" height="967" alt="image" src="https://github.com/user-attachments/assets/76113bb6-d2e6-42d9-811c-2ce825219b00" />
+
 ---
 
 ## 2. Kullanılan Teknolojiler
